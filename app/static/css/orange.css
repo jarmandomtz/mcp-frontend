@@ -1,0 +1,13 @@
+/* app/static/css/orange.css */
+:root {
+  --orange-600: #ff7a00;
+  --orange-700: #e56700;
+}
+.bg-orange { background-color: var(--orange-700) !important; }
+.btn-orange {
+  background-color: var(--orange-600);
+  color: #fff;
+  border: none;
+}
+.btn-orange:hover { background-color: var(--orange-700); }
+.card .card-header.bg-orange { background-color: var(--orange-700); }
