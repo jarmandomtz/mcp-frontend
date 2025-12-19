@@ -1,0 +1,35 @@
+<!-- app/templates/dashboard.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-lg-6 mb-3">
+    <div class="card shadow-sm">
+      <div class="card-header bg-orange text-white">Ask the Assistant</div>
+      <div class="card-body">
+        <form method="post" action="/chat">
+          <div class="mb-3">
+            <textarea name="message" class="form-control" rows="4" placeholder="Type your message..." required></textarea>
+          </div>
+          <button class="btn btn-orange" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-orange text-white">Response</div>
+      <div class="card-body">
+        {% if ai_response %}
+          <p class="fw-semibold">You:</p>
+          <p>{{ last_message }}</p>
+          <hr>
+          <p class="fw-semibold">Assistant:</p>
+          <p>{{ ai_response }}</p>
+        {% else %}
+          <p class="text-muted">No messages yet.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

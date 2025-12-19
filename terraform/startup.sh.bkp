@@ -1,0 +1,65 @@
+# terraform/startup.sh
+#!/usr/bin/env bash
+set -euxo pipefail
+
+apt-get update
+apt-get install -y python3-pip git python3.11-venv tree
+
+# App location
+APP_DIR="/opt/mcp-sre-assistant"
+mkdir -p "$APP_DIR"
+cd "$APP_DIR"
+
+# Pull your repo (replace with your source)
+# git clone https://your-repo-url.git .
+# For demo, create a venv and install
+
+# Create python virtual environment
+#sudo apt install python3.11-venv tree
+python3 -m venv venv
+source venv/bin/activate
+
+# Install python packages
+python3 -m pip install --upgrade pip
+python3 -m pip install uvicorn fastapi jinja2 passlib[argon2] google-cloud-bigquery httpx python-dotenv starlette
+
+cat > /etc/systemd/system/mcp.service <<'UNIT'
+[Unit]
+Description=MCP SRE Assistant
+After=network.target
+
+[Service]
+Type=simple
+Environment=SESSION_SECRET_KEY=$(openssl rand -hex 32)
+Environment=PROJECT_ID=${PROJECT_ID}
+WorkingDirectory=/opt/mcp-sre-assistant
+ExecStart=/usr/bin/python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+
+systemctl daemon-reload
+systemctl enable mcp.service
+systemctl start mcp.service
+
+# Mock server for development
+cat > /etc/systemd/system/mock-ai.service <<'UNIT'
+[Unit]
+Description=Mock AI Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/mcp-sre-assistant
+ExecStart=/usr/bin/python3 -m uvicorn mock_ai.server:app --host 0.0.0.0 --port 8001
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+
+systemctl daemon-reload
+systemctl enable mock-ai.service
+systemctl start mock-ai.service
