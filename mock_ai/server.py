@@ -1,6 +1,6 @@
 # mock_ai/server.py
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic_settings import BaseModel
 
 app = FastAPI(title="Mock AI Server")
 
