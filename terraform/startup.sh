@@ -12,7 +12,7 @@ cd "$APP_DIR"
 
 # Pull your repo (replace with your source)
 # git clone https://your-repo-url.git .
-#git clone -b v1.0.0 --single-branch https://github.com/jarmandomtz/mcp-frontend.git .
+#git clone -b v1.0.1 --single-branch https://github.com/jarmandomtz/mcp-frontend.git .
 git clone --branch develop --single-branch https://github.com/jarmandomtz/mcp-frontend.git .
 # For demo, create a venv and install
 

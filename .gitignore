@@ -210,3 +210,4 @@ __marimo__/
 **/.terraform
 terraform/terraform.tfstate
 venv3.11
+**/.DS_Store
