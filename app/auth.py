@@ -8,7 +8,8 @@ router = APIRouter()
 
 @router.get("/login")
 def login_page(request: Request):
-    return request.app.templates.TemplateResponse("login.html", {"request": request})
+    #return request.app.templates.TemplateResponse("login.html", {"request": request})
+    return request.app.templates.TemplateResponse(request,"login.html")
 
 @router.post("/login")
 def login(email: str = Form(...), password: str = Form(...), request: Request = None):

@@ -209,3 +209,4 @@ __marimo__/
 # JAML Custom
 **/.terraform
 terraform/terraform.tfstate
+venv3.11

@@ -85,7 +85,7 @@ resource "google_compute_firewall" "allow_http" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8000", "8001"]
+    ports    = ["80", "8000", "8002"]
   }
 
   direction     = "INGRESS"
