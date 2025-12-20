@@ -15,7 +15,7 @@ Copilot prompt: https://copilot.microsoft.com/chats/i8scNkMN7iyAGUAEeJmE2
 <details close>
 <summary>mcp-frontend app dir structure</summary>
 
-```console
+```text
 mcp-sre-assistant/
 .
 ├── README.md
