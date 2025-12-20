@@ -208,3 +208,4 @@ __marimo__/
 
 # JAML Custom
 **/.terraform
+terraform/terraform.tfstate

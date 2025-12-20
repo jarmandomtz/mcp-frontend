@@ -14,7 +14,7 @@ terraform -v
 terraform init
 terraform validate
 terraform plan -var="project_id=thematic-bee-473421-i7"
-terraform apply -var="project_id=thematic-bee-473421-i7"
+terraform apply -var="project_id=thematic-bee-473421-i7" -auto-approve
 ...
 Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
 
@@ -22,6 +22,7 @@ Outputs:
 service_account_email = "mcp-sre-assistant-sa@thematic-bee-473421-i7.iam.gserviceaccount.com"
 vm_ip = "34.63.147.244"
 
+terraform destroy -var="project_id=thematic-bee-473421-i7" -auto-approve
 ```
 
 ## Errors
@@ -71,6 +72,18 @@ On the instance shell
 systemctl status mcp.service
 
 tree /opt/mcp-sre-assistant
+```
+
+</details>
+
+<details close>
+<summary>Destroy terraform resources</summary>
+
+```shell
+# Get state resources
+terraform state list
+# Destroy existing resources
+terraform destroy -var="project_id=thematic-bee-473421-i7" -auto-approve
 ```
 
 </details>
