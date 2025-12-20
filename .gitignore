@@ -208,5 +208,5 @@ __marimo__/
 
 # JAML Custom
 **/.terraform
-**/terraform.state
-**/terraform.state.backup
+**/terraform.tfstate
+**/terraform.tfstate.backup
