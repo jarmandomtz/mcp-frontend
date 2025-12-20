@@ -1,0 +1,22 @@
+[project]
+name = "mcp-frontend"
+version = "0.1.0"
+description = "Frontend for MCP SRE Assistant"
+authors = [
+    { name = "Armando" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "starlette",
+    "pydantic",
+    "pydantic-settings",
+    "httpx",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["app"]
