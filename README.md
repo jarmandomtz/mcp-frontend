@@ -120,7 +120,10 @@ pytest -q
 App usage is really simple, just login to the app, and request something to the AI. AI will respond
 
 Steps,
-- Login
+- Start app (if required): ```run-app.sh```
+- Start mock server (if required): ```run-mock.sh```
+- Login using URL http://0.0.0.0:8000/login
+  - Users: jarmando_ml@hotmail.com, armando.martinez.esausi@gmail.com
 - Request
 - Result
 
