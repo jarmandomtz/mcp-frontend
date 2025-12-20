@@ -15,6 +15,7 @@ Copilot prompt: https://copilot.microsoft.com/chats/i8scNkMN7iyAGUAEeJmE2
 <details close>
 <summary>mcp-frontend app dir structure</summary>
 
+```console
 mcp-sre-assistant/
 .
 ├── README.md
@@ -63,6 +64,7 @@ mcp-sre-assistant/
     ├── lib
     ├── pyvenv.cfg
     └── share
+```
 
 </details>
 
