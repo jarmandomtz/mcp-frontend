@@ -12,7 +12,8 @@ cd "$APP_DIR"
 
 # Pull your repo (replace with your source)
 # git clone https://your-repo-url.git .
-git clone -b 1.0.0 --single-branch https://github.com/jarmandomtz/mcp-frontend.git .
+#git clone -b 1.0.0 --single-branch https://github.com/jarmandomtz/mcp-frontend.git .
+git clone --branch develop --single-branch https://github.com/jarmandomtz/mcp-frontend.git .
 # For demo, create a venv and install
 
 # Create python virtual environment
@@ -22,7 +23,7 @@ source venv/bin/activate
 
 # Install python packages
 /opt/mcp-sre-assistant/venv/bin/python3 -m pip install --upgrade pip
-/opt/mcp-sre-assistant/venv/bin/python3 -m pip install uvicorn fastapi jinja2 passlib[argon2] google-cloud-bigquery httpx python-dotenv starlette itsdangerous pydantic_settings
+/opt/mcp-sre-assistant/venv/bin/python3 -m pip install uvicorn fastapi jinja2 passlib[argon2] google-cloud-bigquery httpx python-dotenv starlette itsdangerous pydantic_settings python-multipart
 
 export MYSECRET="$(openssl rand -hex 32)"
 
