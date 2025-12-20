@@ -15,12 +15,11 @@ Copilot prompt: https://copilot.microsoft.com/chats/i8scNkMN7iyAGUAEeJmE2
 <details close>
 <summary>mcp-frontend app dir structure</summary>
 
+```text
 mcp-sre-assistant/
-.
 ├── README.md
 ├── app
 │   ├── __init__.py
-│   ├── __pycache__
 │   ├── ai_client.py
 │   ├── auth.py
 │   ├── bigquery_client.py
@@ -29,14 +28,7 @@ mcp-sre-assistant/
 │   ├── settings.py
 │   ├── static
 │   └── templates
-├── mcp_frontend.egg-info
-│   ├── PKG-INFO
-│   ├── SOURCES.txt
-│   ├── dependency_links.txt
-│   ├── requires.txt
-│   └── top_level.txt
 ├── mock_ai
-│   ├── __pycache__
 │   └── server.py
 ├── pyproject.toml
 ├── requirements.txt
@@ -48,21 +40,13 @@ mcp-sre-assistant/
 │   ├── outputs.tf
 │   ├── startup.sh
 │   ├── startup.sh.bkp
-│   ├── terraform.tfstate
-│   ├── terraform.tfstate.backup
 │   └── variables.tf
 ├── tests
-│   ├── __pycache__
 │   ├── test_ai_integration.py
 │   ├── test_auth.py
 │   └── test_rbac.py
 └── venv3.11
-    ├── bin
-    ├── etc
-    ├── include
-    ├── lib
-    ├── pyvenv.cfg
-    └── share
+```
 
 </details>
 
