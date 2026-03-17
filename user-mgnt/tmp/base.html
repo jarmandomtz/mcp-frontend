@@ -1,0 +1,52 @@
+<!-- app/templates/base.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MCP SRE Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/css/orange.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-orange">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">MCP SRE Assistant</a>
+        <div class="d-flex">
+          <a class="btn btn-outline-light me-2" href="/dashboard">Dashboard</a>
+          <a class="btn btn-outline-light" href="/logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+    <main class="container py-4">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Loading overlay (hidden by default) -->
+    <div id="loading-overlay" class="d-none" style="position:fixed;inset:0;z-index:1050;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);">
+      <div class="text-center">
+        <div class="spinner-border text-light" role="status" style="width:3rem;height:3rem;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="mt-2 text-light">Please wait…</div>
+      </div>
+    </div>
+
+    <script>
+      function showLoading(){
+        var o = document.getElementById('loading-overlay');
+        if(!o) return;
+        o.classList.remove('d-none');
+        document.documentElement.style.overflow = 'hidden';
+      }
+      function hideLoading(){
+        var o = document.getElementById('loading-overlay');
+        if(!o) return;
+        o.classList.add('d-none');
+        document.documentElement.style.overflow = '';
+      }
+      document.addEventListener('DOMContentLoaded', function(){ hideLoading(); });
+      window.addEventListener('pageshow', function(){ hideLoading(); });
+    </script>
+  </body>
+</html>

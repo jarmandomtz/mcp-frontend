@@ -1,0 +1,37 @@
+<!-- app/templates/login.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-orange text-white">Sign in</div>
+      <div class="card-body">
+        <form method="post" action="/login">
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" type="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input class="form-control" type="password" name="password" required>
+          </div>
+          <button class="btn btn-orange w-100" type="submit">Login</button>
+        </form>
+        <script>
+          (function(){
+            var form = document.querySelector('form[action="/login"]');
+            if(!form) return;
+            form.addEventListener('submit', function(){
+              // disable inputs to prevent double-submit
+              var els = form.querySelectorAll('input,button,textarea');
+              els.forEach(function(el){ el.disabled = true; });
+              // show global loading overlay
+              if(typeof showLoading === 'function') showLoading();
+            });
+          })();
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
